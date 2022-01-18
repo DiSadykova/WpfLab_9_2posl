@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfLab_9_2posl"
         mc:Ignorable="d"
-       Title="MainWindow" Height="450" Width="800" Style="{DynamicResource WindowStyle}">
+       Title="MainWindow" Height="450" Width="800" Style="{DynamicResource WinsowStyle}">
     <Window.CommandBindings>
         <CommandBinding Command="local:MyCommands.Exit" Executed="ExitExecuted"/>
         <CommandBinding Command="Open" Executed="OpenExecuted"/>
@@ -45,9 +45,9 @@
         </Menu>
         <ToolBarTray Grid.Row="1" Margin="5,0" >
             <ToolBar>
-                <ComboBox SelectedIndex="0" Width="200" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{StaticResource FontsCol}">
+                <ComboBox x:Name="ComboBoxFonts" SelectedIndex="0" Width="200" ItemsSource="{StaticResource FontsCol}">
                 </ComboBox>
-                <ComboBox SelectedIndex="8" Width="50" SelectionChanged="ComboBox_SelectionChanged_2" ItemsSource="{StaticResource FontSizesCol}">
+                <ComboBox x:Name="ComboBoxSize" SelectedIndex="8" Width="50" ItemsSource="{StaticResource FontSizesCol}" >
                 </ComboBox>
             </ToolBar>
             <ToolBar>
@@ -71,7 +71,7 @@
                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
-        <TextBox x:Name="textBox" Grid.Row="2"/>
+        <TextBox x:Name="textBox" Grid.Row="2" FontSize="{Binding ElementName=ComboBoxSize, Path=SelectedValue}" FontFamily="{Binding ElementName=ComboBoxFonts, Path=SelectedValue}"/>
         <ComboBox x:Name="styleBox" SelectedIndex="0" Grid.Row="3">
         </ComboBox>
     </Grid>

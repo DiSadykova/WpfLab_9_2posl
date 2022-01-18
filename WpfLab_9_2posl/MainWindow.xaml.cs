@@ -45,22 +45,6 @@ namespace WpfLab_9_2posl
             Application.Current.Resources.MergedDictionaries.Add(resource);
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string fontName = ((sender as ComboBox).SelectedItem as string);
-            if (textBox != null)
-            {
-                textBox.FontFamily = new FontFamily(fontName);
-            }
-        }
-        private void ComboBox_SelectionChanged_2(object sender, SelectionChangedEventArgs e)
-        {
-            double fontSize = Convert.ToDouble((sender as ComboBox).SelectedItem as string);
-            if (textBox != null)
-            {
-                textBox.FontSize = fontSize;
-            }
-        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (textBox != null)
